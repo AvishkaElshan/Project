@@ -32,16 +32,14 @@ if ($stmt) {
 // chart =========================================================
 
 
-
-// SQL query to fetch data from chart table
-$sql = "SELECT year, c1, c2, c3, c4, c5, c6, c7, c8 FROM chart WHERE emp_id = 1212";
+$sql = "SELECT year, c1, c2, c3, c4, c5, c6, c7, c8 FROM chart WHERE emp_id = $emp_id";
 $result = $conn->query($sql);
 
 // Initialize an array to hold the data
 $data = array();
 
 // Add column headers
-$data[] = ['Year', 'customise', 'standard', 'Europ Customise', 'Europ Standard', 'Middle East Customise', 'Middle East Standard', 'Asian Customise', 'Asian Standard'];
+$data[] = ['Year', 'customise', 'standard', 'Blank', 'Europ Customise', 'Europ Standard', 'Middle East Customise', 'Middle East Standard', 'Asian Customise', 'Asian Standard'];
 
 // Check if there are rows returned
 if ($result->num_rows > 0) {
@@ -51,6 +49,7 @@ if ($result->num_rows > 0) {
             $row['year'],
             (int)$row['c1'],
             (int)$row['c2'],
+            null, // Add a blank column
             (int)$row['c3'],
             (int)$row['c4'],
             (int)$row['c5'],
@@ -60,7 +59,6 @@ if ($result->num_rows > 0) {
         ];
     }
 }
-
 
 
 // Encode the data as JSON
@@ -239,7 +237,7 @@ $jsonData = json_encode($data);
         require_once "db_connect.php";
 
         // SQL query to fetch data from addpic_table
-        $sql = "SELECT * FROM addpic_table";
+        $sql = "SELECT * FROM addpic_table WHERE emp_id=$emp_id";
         $result = $conn->query($sql);
 
         // Check if there are rows returned
@@ -338,17 +336,23 @@ $jsonData = json_encode($data);
 
 <table id="tbl" class="table table-hover dt-responsive" style="width: 100%;">
     <thead class="thead-dark">
-        <tr style="font-size: 15px;">
-            <th>Emp_ID</th>
+    <tr style="font-size: 15px;">
+            
             <th>Year</th>
-            <th>column1</th>
-            <th>column2</th>
-            <th>column3</th>
-            <th>column4</th>
-            <th>column5</th>
-            <th>column6</th>
-            <th>column7</th>
-            <th>column8</th>
+            <th>Customise</th>
+            <th>Standerd
+            </th>
+            <th>Europe Customise
+            </th>
+            <th>Europe  Standerd
+            </th>
+            <th>Middle East Customise
+            </th>
+            <th>Middle East Customise</th>
+            <th>Asian  Customise
+            </th>
+            <th>Asian Standerd
+            </th>
             <th>Action</th>
         </tr>
     </thead>
@@ -358,7 +362,7 @@ $jsonData = json_encode($data);
         require_once "db_connect.php";
 
         // SQL query to fetch data from addpic_table
-        $sql = "SELECT * FROM chart";
+        $sql = "SELECT * FROM chart WHERE emp_id=$emp_id";
         $result = $conn->query($sql);
 
         // Check if there are rows returned
@@ -367,11 +371,9 @@ $jsonData = json_encode($data);
             while ($row = $result->fetch_assoc()) {
                 ?>
                 <tr>
-                    <td class="arimo-1" style="font-size:20px;font-weight:bold">
-                        <?php echo $row['id']; ?>
-                    </td>
                     
-                    <td class="arimo-1" style="font-size:10px;font-weight:bold">
+                    
+                    <td class="arimo-1" style="font-size:15px;font-weight:bold">
                         <?php echo $row['year']; ?>
                     </td>
                     <td class="arimo-1" style="font-size:10px;font-weight:bold">
@@ -429,6 +431,95 @@ $jsonData = json_encode($data);
       </div>
    </div>
    
+<!-- 
+----------------------------------------------------------- -->
+<?php
+require_once "db_connect.php";
+
+// Define the query to get the data
+$newsql = "SELECT MAX(year) as max_year, c1, c2, c3, c4, c5, c6, c7, c8
+           FROM chart
+           WHERE emp_id = $emp_id";
+
+// Execute the query
+$newresult = $conn->query($newsql);
+
+// Check if there are results
+if ($newresult->num_rows > 0) {
+    // Start the table and add the table headers
+    echo '<table id="tbl" class="table table-hover dt-responsive" style="width: 100%;">';
+    echo '<thead class="thead-dark">
+            <tr style="font-size: 15px;">
+                <th>last Year</th>
+                <th>Customise</th>
+            <th>Standerd
+            </th>
+            <th>Europe Customise
+            </th>
+            <th>Europe  Standerd
+            </th>
+            <th>Middle East Customise
+            </th>
+            <th>Middle East Standerd
+            </th>
+            <th>Asian  Customise
+            </th>
+            <th>Asian Standerd
+            </th>
+            </tr>
+          </thead>';
+    
+    // Start the table body
+    echo '<tbody>';
+
+    // Fetch associative array and output table rows
+    while ($row1 = $newresult->fetch_assoc()) {
+        // Extract the values excluding the max_year
+        $values = [
+            'Customise' => $row1['c1'],
+            'Standerd' => $row1['c2'],
+            'Europe Customise' => $row1['c3'],
+            'Europe  Standerd' => $row1['c4'],
+            'Middle East Customise' => $row1['c5'],
+            'Middle East Standerd' => $row1['c6'],
+            'Asian  Customise' => $row1['c7'],
+            'Asian Standerd' => $row1['c8']
+        ];
+
+        // Find the maximum value in the array
+        $max_value = max($values);
+        // Identify the column name of the maximum value
+        $max_column = array_search($max_value, $values);
+
+        echo '<tr>';
+        // Display the Max Year column without highlighting
+        echo '<td class="arimo-1" style="font-size:15px;font-weight:bold">' . htmlspecialchars($row1['max_year'], ENT_QUOTES, 'UTF-8') . '</td>';
+
+        // Loop through and display the remaining columns with conditional highlighting
+        foreach ($values as $column => $value) {
+            // Determine if this value is the maximum value
+            $is_max = ($value == $max_value) ? 'style="font-size:15px;font-weight:bold; background-color: yellow;"' : 'style="font-size:15px;font-weight:bold"';
+            echo '<td class="arimo-1" ' . $is_max . '>' . htmlspecialchars($value, ENT_QUOTES, 'UTF-8') . '</td>';
+        }
+        echo '</tr>';
+
+        // Display a message about the highlighted column
+        echo '<tr><td colspan="10" style="font-size:20px;font-weight: bold; color: red; text-align: center;">The highest value in this row is in the column ' . ucfirst($max_column) . ' and give first priority to this product next year.</td></tr>';
+    }
+
+    // Close the table body and table
+    echo '</tbody>';
+    echo '</table>';
+} else {
+    // Display a message if there are no results
+    echo '<p>No results found.</p>';
+}
+?>
+
+
+
+   <!-- 
+----------------------------------------------------------- -->
 </section>
 
 <footer class="footer">

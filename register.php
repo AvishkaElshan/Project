@@ -98,20 +98,6 @@
    
 </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <footer class="footer">
 
    &copy;  Investment Board | all rights reserved!
