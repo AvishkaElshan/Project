@@ -1,3 +1,7 @@
+<?php
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +18,8 @@
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
+
+   
    <style>
       * {
         box-sizing: border-box;
@@ -180,14 +186,15 @@
 </section>
 
 
-
-<div class="container">
+<section class="contact">
+<div class="box-container">
+    <div class="box">
     <h1 class="mb-4">Advertisements:</h1>
     <div class="row">
         <?php
         require_once "db_connect.php";
         // Retrieve images and descriptions from database
-        $sql = "SELECT img1, desc1, img2, desc2, img3, desc3 FROM addpic_table";
+        $sql = "SELECT img1, desc1, img2, desc2, img3, desc3 FROM addpic_table WHERE emp_id=002";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -234,8 +241,8 @@
 
         $conn->close();
         ?>
-    </div>
-</div>
+    </div></div>
+</div></section>
 
 <section class="contact">
 

@@ -36,7 +36,7 @@ foreach ($images as $index => $image) {
         }
 
         // Check file size
-        if ($_FILES[$image]["size"] > 500000) {
+        if ($_FILES[$image]["size"] > 5000000) {
             
             $_SESSION['message'] = "Sorry, your file is too large.";
             $_SESSION['msg_type'] = "danger";

@@ -1,5 +1,6 @@
 <?php
-require_once "db_connect.php"
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,61 +16,8 @@ require_once "db_connect.php"
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
 
-   <style>
-      * {
-        box-sizing: border-box;
-      }
-      
-      
-      
-      #myVideo {
-        position:static;
-        right: 0;
-        bottom: 0;
-        min-width: 100%; 
-        min-height: 100%;
-      }
-      
-      .content {
-        position: fixed;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.5);
-        color: #f1f1f1;
-        width: 100%;
-        padding: 20px;
-      }
-      
-      
-      </style>
-
-
-<!-- chart scrip from here -->
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-  google.charts.load("current", {packages:["corechart"]});
-  google.charts.setOnLoadCallback(drawChart);
-  function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['all', 'Waste Recycled and Reused'],
-      ['reused',     16],
-      ['Recycled',     6],
-      ['wastes',     2]
-    ]);
-
-    var options = {
-      title: 'Waste Recycled and Reused',
-      pieHole: 0.4,
-    };
-
-    var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-    chart.draw(data, options);
-  }
-</script>
-
-<!-- to here -->
-
-
-
+   <!-- 
+,,,, -->
 <style>
       .card {
           margin-bottom: 20px;
@@ -170,10 +118,56 @@ require_once "db_connect.php"
             color: #fff;
             font-size: 24px;
         }
-    
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .progress-container {
+            margin: 20px 0;
+        }
+        .progress-label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #f3f3f3;
+            border-radius: 25px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        .progress-bar-inner {
+            height: 20px;
+            width: 0;
+            background-color: #4caf50;
+            text-align: center;
+            color: white;
+            line-height: 20px;
+            border-radius: 25px 0 0 25px;
+        }
+        .section {
+            margin-bottom: 40px;
+            padding:20px;
+        }
+        .section h2 {
+            border-bottom: 2px solid #4caf50;
+            padding-bottom: 5px;
+        }
   </style>
 </head>
 <body>
+
+<!-- Quality enhancement  -->
+
+
+    <title>Company Quality Enhancement</title>
+ 
+        
+        
+ 
+<body>
+
+
 <header class="header">
    
    <section class="flex">
@@ -201,6 +195,9 @@ require_once "db_connect.php"
 
 </header>   
 
+
+
+
 <div class="side-bar">
 
    <div id="close-btn">
@@ -215,7 +212,6 @@ require_once "db_connect.php"
       <p class="role">Investment Board</p>
    </div>
 
-
    <nav class="navbar">
       <a href="silueta.php"><i></i><span>Silueta</span></a>
       <a href="Rainwear.php"><i></i><span>Rainwear</span></a>
@@ -229,112 +225,120 @@ require_once "db_connect.php"
       <a href="bradix.php"><i></i><span>Brandix</span></a>
    </nav>
 
+</div>
+
+
+<section class="contact">
+
+<div class="box-container">
+    <div class="box">
+        
+    <h1>Company Quality Enhancement</h1>
+    
+    <div class="box-container">
+        <h2 style="font-size:25px">Quality Metrics</h2>
+<br>
+        <div class="progress-container">
+            <div class="progress-label" style="font-size:15px">Customer Satisfaction: 95%</div>
+            <div class="progress-bar">
+                <div class="progress-bar-inner" style="width: 95%;">95%</div>
+            </div>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-label" style="font-size:15px">Product Quality: 88%</div>
+            <div class="progress-bar">
+                <div class="progress-bar-inner" style="width: 88%;">88%</div>
+            </div>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-label" style="font-size:15px">Delivery Timeliness: 92%</div>
+            <div class="progress-bar">
+                <div class="progress-bar-inner" style="width: 92%;">92%</div>
+            </div>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-label" style="font-size:15px">Employee Efficiency: 85%</</div>
+            <div class="progress-bar">
+                
+                <div class="progress-bar-inner" style="width: 85%;">85%</div>
+            </div>
+        </div>
+    </div>
+  
+
+    <div class="section">
+        <h2 style="font-size:15px;font-style:italic">Quality Enhancement Initiatives</h2>
+        <p style="font-size:14px;">We are continuously striving to improve the quality of our products and services. Below are some of the initiatives we have undertaken to enhance quality:</p>
+       <br>
+        <ul style="list-style-type: circle;font-size:12px;text-align: justify;">
+            <li>Implementation of Six Sigma methodologies to reduce defects and improve processes.</li>
+            <li>Regular training programs for employees to enhance their skills and efficiency.</li>
+            <li>Upgrading our technology and equipment to ensure high-quality production.</li>
+            <li>Soliciting regular feedback from customers to understand their needs and improve satisfaction.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 style="font-size:15px;font-style:italic">Future Goals</h2>
+        <p style="font-size:14px;">Our future goals include:</p>
+        <br>
+        <ul style="list-style-type: circle;font-size:12px;text-align: justify;">
+            <li>Achieving a customer satisfaction rate of 98%.</li>
+            <li>Improving product quality to 95%.</li>
+            <li>Ensuring 100% on-time delivery.</li>
+            <li>Enhancing employee efficiency to 90%.</li>
+        </ul>
+    </div>
+
+
 
 </div>
 
-<section class="contact">
-
-
-
-<section class="contact">
    
-   <div class="box-container">
-      <div class="box">
-         <img src="images/linea1.jpeg" alt="">
-         <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore at obcaecati quo. Ratione error dignissimos officiis obcaecati rem, accusantium ex placeat incidunt, provident architecto iste, maiores minus expedita consectetur veniam fugiat libero dolorem nam qui dolores iusto odit. Inventore ipsum sequi quam vitae adipisci porro molestias minima officia illum deleniti?</p>
-      </div>
-   </div>
-</section>
-   <div class="box-container">
-
-      <div class="box">
-         <i class="fas fa-phone"></i>
-         <h3>phone number</h3>
-         <a href="tel:1234567890">123-456-7890</a>
-         <a href="tel:1112223333">111-222-3333</a>
-      </div>
-      
-      <div class="box">
-         <i class="fas fa-envelope"></i>
-         <h3>email address</h3>
-         <a href="mailto:shaikhanas@gmail.com">shaikhanas@gmail.come</a>
-         <a href="mailto:anasbhai@gmail.com">anasbhai@gmail.come</a>
-      </div>
-
-      <div class="box">
-         <i class="fas fa-map-marker-alt"></i>
-         <h3>office address</h3>
-         <a href="#">flat no. 1, a-1 building, jogeshwari, mumbai, india - 400104</a>
-      </div>
-
-   </div>
-
-   <section class="contact">
-   
-   <div class="box-container">
-      <div class="box">
-         <img src="images/linea1.jpeg" alt="">
-         <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore at obcaecati quo. Ratione error dignissimos officiis obcaecati rem, accusantium ex placeat incidunt, provident architecto iste, maiores minus expedita consectetur veniam fugiat libero dolorem nam qui dolores iusto odit. Inventore ipsum sequi quam vitae adipisci porro molestias minima officia illum deleniti?</p>
-      </div>
-   </div>
-
-   <div class="box-container">
-
-      <div class="box">
-         <i class="fas fa-phone"></i>
-         <h3>phone number</h3>
-         <a href="tel:1234567890">123-456-7890</a>
-         <a href="tel:1112223333">111-222-3333</a>
-      </div>
-      
-      <div class="box">
-         <i class="fas fa-envelope"></i>
-         <h3>email address</h3>
-         <a href="mailto:shaikhanas@gmail.com">shaikhanas@gmail.come</a>
-         <a href="mailto:anasbhai@gmail.com">anasbhai@gmail.come</a>
-      </div>
-
-      <div class="box">
-         <i class="fas fa-map-marker-alt"></i>
-         <h3>office address</h3>
-         <a href="#">flat no. 1, a-1 building, jogeshwari, mumbai, india - 400104</a>
-      </div>
-
-   </div>
 
 
-   <div class="box-container">
-      <div class="box">
-         <div id="donutchart" style="width: 900px; height: 500px;"></div>
-         
-            <p style="text-align: justify; color: rgb(4, 44, 20); font-size: 20px;">
-               In 2023, MAS made significant strides in its sustainability initiatives, exemplifying its commitment to environmental responsibility and waste management. The company successfully recycled 35% of its waste, reflecting a robust effort to divert substantial amounts of materials from landfills and repurpose them for new uses. This recycling rate underscores MAS's dedication to fostering a circular economy, where waste is minimized, and resources are reused.</p>
-   
-            <br> <br>
-            <p style="text-align: justify; color: rgb(4, 44, 20); font-size: 20px;">Moreover, MAS achieved an impressive reuse rate of 72%, indicating that a significant portion of its waste materials were given a second life. This high reuse percentage highlights the company's innovative strategies and effective waste management practices, which focus on maximizing the utility of materials and reducing the need for virgin resources. By finding new applications for waste products, MAS not only conserves natural resources but also reduces its environmental footprint.</p>
-            
-            <br><br>
-            <p style="text-align: justify; color: rgb(4, 44, 20); font-size: 20px;">Despite these achievements, the company faced challenges, with 4% of its waste categorized as wasted. This figure represents the portion of waste that could not be recycled or reused and thus was disposed of. While this indicates room for improvement, it also provides a clear benchmark for future sustainability goals and initiatives.</p>
-            
-            <br><br>
-            <p style="text-align: justify; color: rgb(4, 44, 20); font-size: 20px;">Overall, MAS's accomplishments in 2023 reflect a proactive and forward-thinking approach to waste management. The significant percentages of recycled and reused materials demonstrate the company's commitment to sustainability and its ongoing efforts to reduce environmental impact. These achievements set a strong foundation for future initiatives aimed at further improving waste management and enhancing environmental stewardship.</p>
-       </div>
-      
-   </div>
-
-
+</div>
 
 </section>
+<!-- Quality enhancement end ....Av....  -->
 
 
+<section class="contact">
+<div class="box-container">
 
-<div class="container">
+<div class="box">
+<i class="fa-solid fa-1"></i><i class="fa-solid fa-0"></i><i class="fa-solid fa-0"></i>
+    <i class="fa-duotone fa-percent"></i>
+<p style="font-size:14px; font-weight:bold; text-align:justify;"> MAS is proud of its record in delivering top-class products, always managing to maintain a rating of 100% for quality. Every process is serious, down to the last detail, to make sure that the items produced answer the very stringent quality criteria set by the company. MAS ascertains high quality through rigid control methods and by seeking improvement at all times to make sure that their products meet or even surpass customer expectations, thus making them one of the industry leaders.</p>
+</div>
+</div>
+</section>
+
+<section class="contact">
+<div class="box-container">
+
+<div class="box">
+<i class="fa-solid fa-8"></i>
+    <i class="fa-duotone fa-percent"></i>
+<p style="font-size:14px; font-weight:bold; text-align:justify;">The remaining 8 percent of the clothing produced by MAS is used for other purposes. This excess is allocated for various needs such as quality assurance testing, marketing samples and as reserve stock to address any unexpected requests or replacements. By maintaining this buffer, MAS ensures that we can consistently meet customer expectations and maintain our high service standards and product quality.</p>
+</div>
+</div>
+</section>
+
+<!-- ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,, -->
+
+<section class="contact">
+<div class="box-container">
+    <div class="box">
     <h1 class="mb-4">Advertisements:</h1>
     <div class="row">
         <?php
         require_once "db_connect.php";
         // Retrieve images and descriptions from database
-        $sql = "SELECT img1, desc1, img2, desc2, img3, desc3 FROM addpic_table";
+        $sql = "SELECT img1, desc1, img2, desc2, img3, desc3 FROM addpic_table WHERE emp_id=001";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -381,8 +385,32 @@ require_once "db_connect.php"
 
         $conn->close();
         ?>
-    </div>
-</div>
+    </div></div>
+</div></section>
+<section class="contact">
+   <div class="box-container">
+
+      <div class="box">
+         <i class="fas fa-phone"></i>
+         <h3>phone number</h3>
+         <a href="tel:1234567890">123-456-7890</a>
+         <a href="tel:1112223333">111-222-3333</a>
+      </div>
+      
+      <div class="box">
+         <i class="fas fa-envelope"></i>
+         <h3>email address</h3>
+         <a href="maskreeda@gmail.com">maskreeda@gmail.com</a>
+         <a href="mas.kreeda@gmail.com">mas.kreeda@gmail.com</a>
+      </div>
+
+      <div class="box">
+         <i class="fas fa-map-marker-alt"></i>
+         <h3>office address</h3>
+         <a href="#">Biyagama </a>
+      </div>
+
+   </div>
 <footer class="footer">
 
    &copy;  Investment Board | all rights reserved!

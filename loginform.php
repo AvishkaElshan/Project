@@ -1,67 +1,5 @@
 <?php
 
-
-// $error = "";
-
-// if (isset($_POST["submit"])) {
-//     require_once "db_connect.php";  // Ensure this file has proper database connection setup
-
-//     $emp_id = $_POST["id"];  // Using the emp_id as string to match the database schema
-//     $password = $_POST["password"];
-//     $user_type = 'admin';
-//     $company=$_POST["company"];
-
-//     // Prepare SQL statement to prevent SQL Injection
-//     $stmt = $conn->prepare("SELECT * FROM users WHERE emp_id = ?");
-//     if ($stmt) {
-//         $stmt->bind_param("s", $emp_id);  // 's' denotes 'string'
-//         $stmt->execute();
-//         $result = $stmt->get_result();
-
-//         if ($result->num_rows === 1) {
-//             $user = $result->fetch_assoc();
-//             if (password_verify($password, $user["password"])) {  // Use password_verify to check hashed password
-//                 session_start();
-//                 $_SESSION["user_id"] = $user["emp_id"];
-//                 $_SESSION["user_type"] = $user["user_type"];
-//                 if ($user["user_type"] == $user_type) {
-//                     if ($user_type == "user") {
-//                         header("Location: admin_mas.php");  // Redirect to profile page
-//                     } elseif ($user_type == "admin" && $company =="brandix") {
-//                         header("Location: admin_brandix.php");  // Redirect to admin page
-//                     }
-//                     exit();
-//                 } else {
-//                     $error = "Incorrect user type selected.";
-//                 }
-//             } else {
-//                 $error = "Invalid password.";
-//             }
-//         } else {
-//             $error = "User not found.";
-//         }
-
-//         $stmt->close();
-//     } else {
-//         $error = "Failed to prepare the SQL statement.";
-//     }
-//     $conn->close();
-// } else {
-//     $error = "Invalid request.";
-// }
-
-// if (!empty($error)) {
-//     echo "<p style='color: red;'>$error</p>";
-// }
-
-session_start();
-
-if (isset($_POST['submit'])) {
-	$_SESSION['id'] = 1;
-	header("Location: index.php");
-}
-
-
 $error = "";
 
 if (isset($_POST["submit"])) {
@@ -135,53 +73,6 @@ if (!empty($error)) {
 }
 
 
-// $error = "";
-
-// if (isset($_POST["submit"])) {
-//     require_once "db_connect.php";  // Ensure this file has proper database connection setup
-
-//     $emp_id = (int) $_POST["id"];  // Casting to integer to ensure correct data type
-//     $password = $_POST["password"];
-//     $user_type = $_POST["type"];
-    
-
-
-//     // Prepare SQL statement to prevent SQL Injection
-//     $stmt = $conn->prepare("SELECT * FROM users WHERE emp_id = '$emp_id'");
-//     if ($stmt) {
-//         $stmt->bind_param("s", $emp_id);  // 'i' denotes 'integer'
-//         $stmt->execute();
-//         $result = $stmt->get_result();
-
-//         if ($result->num_rows === 1) {
-//             $users = $result->fetch_assoc();
-//             if ($password === $users["password"] && $user_type == "user") {  // Direct comparison of plaintext passwords
-//                 session_start();
-//                 $_SESSION["user_id"] = $users["emp_id"];  // It's safer to store user_id than plain "yes"
-//                 header("Location: profile.html");  // Redirect to profile page
-//                 exit();
-//             } 
-//             elseif ($password === $users["password"] && $user_type == "admin") {  // Direct comparison of plaintext passwords
-//                 session_start();
-//                 $_SESSION["user_type"] = $users["user_type"];  // It's safer to store user_id than plain "yes"
-//                 header("Location: admin.html");  // Redirect to profile page
-//                 exit();
-//             }
-//             else {
-//                 $error = "Invalid password.";
-//             }
-//         } else {
-//             $error = "User not found.";
-//         }
-
-//         $stmt->close();
-//     } else {
-//         $error = "Failed to prepare the SQL statement.";
-//     }
-//     $conn->close();
-// } else {
-//     $error = "Invalid request.";
-// }
 ?>
 
 <!DOCTYPE html>
