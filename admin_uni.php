@@ -167,7 +167,17 @@ $jsonData = json_encode($data);
 
 
       </div>
-      <div class="box-container">
+      <div class="box-container"> <div class="box">
+    <div class="flex">
+      <section class="form-container" style="width: 100%;">
+      <h1>Upload CSV for Next Year Sales Prediction</h1>
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+        Select CSV file to upload:
+        <input type="file" name="fileToUpload" id="fileToUpload">
+        <input type="submit" value="Upload CSV" name="submit">
+    </form>
+    </div>
+   </div> </section>
   <div class="box">
     <div class="flex">
       <section class="form-container" style="width: 100%;">
